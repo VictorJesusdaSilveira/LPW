@@ -6,7 +6,7 @@ if(isset($_GET["num1"]) && isset($_GET["num2"])){
 
     $soma = $num1 + $num2;
 
-    $subtracao = $num1 -$num2;
+    $subtracao = $num1 - $num2;
 
     $multiplicacao = $num1 * $num2;
 
