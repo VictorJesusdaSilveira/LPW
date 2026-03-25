@@ -83,7 +83,7 @@ button {
 <p><?= $mensagem ?></p>
 
 <?php if ($dica): ?>
-    <p>💡 Dica: <?= $dica ?></p>
+    <p> Dica: <?= $dica ?></p>
 <?php endif; ?>
 
 <p>Tentativas: <?= $tentativas ?>/3</p>
