@@ -77,7 +77,7 @@ button {
 </head>
 <body>
 
-<h1>🎮 Jogo de Adivinhação</h1>
+<h1> Jogo de Adivinhação</h1>
 <h3>Clique na carta correta</h3>
 
 <p><?= $mensagem ?></p>
