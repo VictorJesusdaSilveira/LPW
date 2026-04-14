@@ -3,29 +3,41 @@ require_once("model/Cavaleiro.php");
 
 if (isset($_POST["nome"])) {
     $nome = $_POST["nome"];
+}else {
+    $nome = "";
 }
 if (isset($_POST["idade"])) {
     $idade = $_POST["idade"];
+}else {
+    $idade = "";
 }
 if (isset($_POST["armadura"])) {
     $armadura = $_POST["armadura"];
+}else {
+    $armadura = "";
 }
 if (isset($_POST["poder"])) {
     $poder = $_POST["poder"];
+}else {
+    $poder = "";
 }
 if (isset($_POST["constelacao"])) {
     $constelacao = $_POST["constelacao"];
+}else {
+    $constelacao = "";
 }
 if (isset($_POST["descricao"])) {
     $descricao = $_POST["descricao"];
+}else {
+    $descricao = "";
 }
 if (isset($_POST["link"])) {
     $link = $_POST["link"];
+}else {
+    $link = "";
 }
 
-//só falta o CSS
-
-$cavaleiro = new Cavaleiro($nome, $idade, $armadura, $poder, $constelacao, $descricao, $link)
+$cavaleiro = new Cavaleiro($nome, $idade, $armadura, $poder, $constelacao, $descricao, $link);
 ?>
 
 <!DOCTYPE html>
@@ -39,36 +51,17 @@ $cavaleiro = new Cavaleiro($nome, $idade, $armadura, $poder, $constelacao, $desc
 <body>
     <h1>Card do Cavaleiro</h1>
 
-    <div class="card">
-        <label for="">Nome: </label>
-        <?= $cavaleiro->getNome() ?>
-        <br>
+<div class="card">
+    <img src="<?= $cavaleiro->getLink(); ?>" alt="Imagem">
 
-        <label for="">Idade: </label>
-        <?= $cavaleiro->getIdade() ?>
-        <br>
+    <h2><?= $cavaleiro->getNome() ?></h2>
 
-        <label for="">Armadura: </label>
-        <?= $cavaleiro->getArmadura() ?>
-        <br>
-
-        <label for="">Poder: </label>
-        <?= $cavaleiro->getPoder() ?>
-        <br>
-
-        <label for="">Constelação: </label>
-        <?= $cavaleiro->getConstelacao() ?>
-        <br>
-
-        <label for="">Descrição: </label>
-        <?= $cavaleiro->getDescricao() ?>
-        <br>
-
-        <label for="">Link: </label>
-        <?= $cavaleiro->getLink() ?>
-    </div>
-
-
+    <p><strong>Idade:</strong> <?= $cavaleiro->getIdade() ?></p>
+    <p><strong>Armadura:</strong> <?= $cavaleiro->getArmadura() ?></p>
+    <p><strong>Poder:</strong> <?= $cavaleiro->getPoder() ?></p>
+    <p><strong>Constelação:</strong> <?= $cavaleiro->getConstelacao() ?></p>
+    <p><?= $cavaleiro->getDescricao() ?></p>
+</div>
     <a href="cards_form.php"><button>Novo Cadastro</button></a>
 
 </body>
