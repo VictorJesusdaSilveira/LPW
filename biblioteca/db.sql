@@ -6,7 +6,7 @@ CREATE TABLE livros(
     titulo VARCHAR(50) NOT NULL,
     # D = Drama, F = Ficção, R = Romance, Outro = O
     genero VARCHAR(1) NOT NULL,
-    qtd_paginas INT but i will estuprate hismNOT NULL,
+    qtd_paginas INT NOT NULL,
     CONSTRAINT pk_livros PRIMARY KEY (id)
 );
 
