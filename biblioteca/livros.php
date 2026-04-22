@@ -3,10 +3,16 @@ require_once("util/Conexao.php");
 
 $conexao = Conexao::getConexao();
 
+//listagem dos livros
 $sql = "SELECT * FROM livros";
 $stm = $conexao->prepare($sql); //prepara
 $stm->execute(); //executa
 $livros = $stm->fetchAll(); //pega a resposta
+
+//pegar o livro
+if(isset($_POST["titulo"])){
+
+}
 
 ?>
 
