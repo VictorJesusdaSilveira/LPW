@@ -10,7 +10,8 @@ CREATE TABLE livros(
     CONSTRAINT pk_livros PRIMARY KEY (id)
 );
 
-INSERT INTO livros (titulo, genero, qtd_paginas) VALUE ( 
- 'Vidas Secas', 'R' , '176'
+INSERT INTO livros (titulo, genero, qtd_paginas) VALUES ( 
+    ('Vidas Secas','R','176'),
+    ('Harry Potter', 'F', '250');
 
 );
