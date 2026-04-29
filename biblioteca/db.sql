@@ -12,6 +12,7 @@ CREATE TABLE livros(
 
 INSERT INTO livros (titulo, genero, qtd_paginas) VALUES ( 
     ('Vidas Secas','R','176'),
-    ('Harry Potter', 'F', '250');
 
+ALTER TABLE livros
+ADD autor varchar(30) NOT NULL DEFAULT 'Não informado';
 );
