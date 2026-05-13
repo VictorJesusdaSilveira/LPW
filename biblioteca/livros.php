@@ -12,10 +12,13 @@ $conexao = Conexao::getConexao();
 //Salvar o livro
 if(isset($_POST['titulo'])) {
     //Receber os dados do formulário 
-    $titulo = $_POST["titulo"];
-    $genero = $_POST["genero"];
-    $paginas = $_POST["paginas"];
-    $autor = $_POST["autor"];
+    $titulo = trim(isset($_POST["titulo"])) ? trim($_POST["titulo"]) : null; //mesma coisa q um if, primeira parte é a condição, depois do ? é se a condição for verdadeira e depois do : é se a condição for falsa 
+    $genero = trim(isset($_POST["genero"])) ? trim($_POST["genero"]) : null;
+    $paginas = is_numeric(isset($_POST["paginas"])) ? ($_POST["paginas"]) : null; //is_numeric vai verificar se tem um número no campo, se tiver retorna verdadeiro se não tiver retorna falso
+    $autor = trim(isset($_POST["autor"])) ? trim($_POST["autor"]) : null;
+
+    //Validar os dados
+
 
     //Inserir no banco
     $sql = "INSERT INTO livros (titulo, genero, qtd_paginas, autor) VALUES(?, ?, ?, ?)";
@@ -24,7 +27,6 @@ if(isset($_POST['titulo'])) {
 
     //Redirecionar para a página de listagem
     header("location:livros.php");
-
     
 }
 
@@ -35,6 +37,9 @@ $stm->execute();
 $livros = $stm->fetchAll();
 
 //print "<pre>" . print_r($livros, true) . "</pre>";
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -89,19 +94,20 @@ $livros = $stm->fetchAll();
 
     <h3>Formulário</h3>
 
-    <form action="" method="POST">
+   <!-- <form action="" method="POST" onsubmit="return validarForm();")> -->
+    <form action="" method="POST")>
 
         <label for="">Autor</label>
-        <input type="text" placeholder="Informe o Autor" name="autor">
+        <input type="text" placeholder="Informe o Autor" name="autor" id="autor">
         <br><br>
 
         <label for="">Título</label>
         <input type="text" placeholder="Informe o título"
-            name="titulo">
+            name="titulo" id="titulo">
 
         <br><br>
 
-        <select name="genero">
+        <select name="genero" id="genero">
             <option value="">---Selecione o gênero---</option>
             <option value="D">Drama</option>
             <option value="F">Ficção</option>
@@ -113,13 +119,20 @@ $livros = $stm->fetchAll();
 
         <label for="">Quantidade de Páginas</label>
         <input type="number" name="paginas" 
-            placeholder="Informe o número de páginas">
+            placeholder="Informe o número de páginas" id="qtdPaginas">
 
         <br><br>
 
         <button>Gravar</button>
 
     </form>
+
+    <div style="color: red; display: none;" id="erro">
+        
+
+
+    </div>
     
+    <script src="validacao.js"></script>
 </body>
 </html>
